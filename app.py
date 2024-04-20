@@ -16,12 +16,13 @@ def main():
 
         # Split input by space to get key and value
         input_parts = user_input.split()
+        #Check to see if there was input from user
         if len(input_parts) == 0:
             print(") ERROR: Invalid input")
         else:
-            method_name = input_parts[0].upper()
-
+            method_name = input_parts[0].upper() #Gets first string from user input
             if method_name == "KEYS":
+                #Validate correct number of parameters and that all parameters are strings
                 if len(input_parts) == 1 and isinstance(input_parts[0],str):
                     KEYS(data)
                 else:
