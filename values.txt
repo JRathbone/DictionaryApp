@@ -1,0 +1,8 @@
+fruit: banana
+fruit: watermelon
+fruit: apple
+carbs: bread
+carbs: cereal
+drink: soda
+drink: water
+drink: tea
