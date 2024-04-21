@@ -7,6 +7,11 @@
 ### Description:
 This Multi-value Dictionary App allows users to store key-value pairs where each key can have multiple values associated with it. Users can perform various operations such as adding a member, removing a member, clearing the dictionary, checking if a key or member exists, and more.
 
+Example dictionary: {'fruit': ['banana', 'watermelon', 'apple'], 
+                    'carbs':  ['bread', 'cereal'], 
+                    'drink':  ['soda', 'water', 'tea']
+                    }
+
 ### How to Use:
 0. Clone this repository and open in your preferred IDE
 1. From your terminal/CMD enter `python ./app.py` to run the application (this may vary depending on your     setup. I am on Mac)
