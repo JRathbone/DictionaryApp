@@ -21,7 +21,7 @@ This Multi-value Dictionary App allows users to store key-value pairs where each
    - To get all keys: `KEYS`
    - To get all members across all keys: `ALLMEMBERS`
    - To get all key-value pairs: `ITEMS`
-   - To upload data from a file: `UPLOAD filename` (addtional feature I added. not in instructions)
+   - To upload data from a file: `UPLOAD filename.txt` (addtional feature I added that allows users to upload a text file of key:value pairs to the dictionary. )
    - To exit the application: `EXIT`
 
 ### How to Run Testcases:
