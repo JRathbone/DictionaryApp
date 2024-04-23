@@ -20,72 +20,73 @@ def main():
         if len(input_parts) == 0:
             print(") ERROR: Invalid input")
         else:
-            method_name = input_parts[0].upper() #Gets first string from user input
-            if method_name == "KEYS":
-                #Validate correct number of parameters and that all parameters are strings
-                if len(input_parts) == 1 and isinstance(input_parts[0],str):
-                    KEYS(data)
-                else:
-                    print(") ERROR: Invalid input format or parameters")
-            elif method_name == "MEMBERS":
-                if len(input_parts) == 2 and isinstance(input_parts[1], str):
-                    parameters = input_parts[1:]
-                    MEMBERS(data, parameters[0])
-                else:
-                    print(") ERROR: Invalid input format or parameters")
-            elif method_name == "ADD":
-                if len(input_parts) == 3 and all(isinstance(param, str) for param in input_parts[1:]):
-                    parameters = input_parts[1:]
-                    ADD(data, parameters[0], parameters[1])
-                else:
-                    print(") ERROR: Invalid input format or parameters")
-            elif method_name == "REMOVE":
-                if len(input_parts) == 3 and all(isinstance(param, str) for param in input_parts[1:]):
-                    parameters = input_parts[1:]
-                    REMOVE(data, parameters[0], parameters[1])
-                else:
-                    print(") ERROR: Invalid input format or parameters")
-            elif method_name == "REMOVEALL":
-                if len(input_parts) == 2 and isinstance(input_parts[1], str):
-                    parameters = input_parts[1:]
-                    REMOVEALL(data, parameters[0])
-                else:
-                    print(") ERROR: Invalid input format or parameters")
-            elif method_name == "CLEAR":
-                if len(input_parts) == 1 and isinstance(input_parts[0],str):
-                    CLEAR(data)
-                else:
-                    print(") ERROR: Invalid input format or parameters")
-            elif method_name == "KEYEXISTS":
-                if len(input_parts) == 2 and isinstance(input_parts[1], str):
-                    parameters = input_parts[1:]
-                    KEYEXISTS(data, parameters[0])
-                else:
-                    print(") ERROR: Invalid input format or parameters")
-            elif method_name == "MEMBEREXISTS":
-                if len(input_parts) == 3 and all(isinstance(param, str) for param in input_parts[1:]):
-                    parameters = input_parts[1:]
-                    MEMBEREXISTS(data, parameters[0], parameters[1])
-                else:
-                    print(") ERROR: Invalid input format or parameters")
-            elif method_name == "ALLMEMBERS":
-                if len(input_parts) == 1 and isinstance(input_parts[0],str):
-                    ALLMEMBERS(data)
-                else:
-                    print(") ERROR: Invalid input format or parameters")
-            elif method_name == "ITEMS":
-                if len(input_parts) == 1 and isinstance(input_parts[0],str):
-                    ITEMS(data)
-                else:
-                    print(") ERROR: Invalid input format or parameters")
-            elif method_name == "UPLOAD":
-                if len(input_parts) == 2 and isinstance(input_parts[1], str):
-                    parameters = input_parts[1:]
-                    UPLOAD(data, parameters[0])
-                else:
-                    print(") ERROR: Invalid input format or parameters")
+            method_name = input_parts[0].upper()  # Gets the first string from user input and converts it to uppercase
+        if method_name == "KEYS":
+            # Validate correct number of parameters and that all parameters are strings with only alphabetic chars
+            if len(input_parts) == 1 and all(param.isalpha() for param in input_parts):
+                KEYS(data)
             else:
-                print(") ERROR: invalid method name")
+                print(") ERROR: Invalid input format or parameters")
+        elif method_name == "MEMBERS":
+            if len(input_parts) == 2 and all(param.isalpha() for param in input_parts[1:]):
+                parameters = input_parts[1:]
+                MEMBERS(data, parameters[0])
+            else:
+                print(") ERROR: Invalid input format or parameters")
+        elif method_name == "ADD":
+            if len(input_parts) == 3 and all(param.isalpha() for param in input_parts[1:]):
+                parameters = input_parts[1:]
+                ADD(data, parameters[0], parameters[1])
+            else:
+                print(") ERROR: Invalid input format or parameters")
+        elif method_name == "REMOVE":
+            if len(input_parts) == 3 and all(param.isalpha() for param in input_parts[1:]):
+                parameters = input_parts[1:]
+                REMOVE(data, parameters[0], parameters[1])
+            else:
+                print(") ERROR: Invalid input format or parameters")
+        elif method_name == "REMOVEALL":
+            if len(input_parts) == 2 and input_parts[1].isalpha():
+                parameters = input_parts[1:]
+                REMOVEALL(data, parameters[0])
+            else:
+                print(") ERROR: Invalid input format or parameters")
+        elif method_name == "CLEAR":
+            if len(input_parts) == 1 and input_parts[0].isalpha():
+                CLEAR(data)
+            else:
+                print(") ERROR: Invalid input format or parameters")
+        elif method_name == "KEYEXISTS":
+            if len(input_parts) == 2 and input_parts[1].isalpha():
+                parameters = input_parts[1:]
+                KEYEXISTS(data, parameters[0])
+            else:
+                print(") ERROR: Invalid input format or parameters")
+        elif method_name == "MEMBEREXISTS":
+            if len(input_parts) == 3 and all(param.isalpha() for param in input_parts[1:]):
+                parameters = input_parts[1:]
+                MEMBEREXISTS(data, parameters[0], parameters[1])
+            else:
+                print(") ERROR: Invalid input format or parameters")
+        elif method_name == "ALLMEMBERS":
+            if len(input_parts) == 1 and input_parts[0].isalpha():
+                ALLMEMBERS(data)
+            else:
+                print(") ERROR: Invalid input format or parameters")
+        elif method_name == "ITEMS":
+            if len(input_parts) == 1 and input_parts[0].isalpha():
+                ITEMS(data)
+            else:
+                print(") ERROR: Invalid input format or parameters")
+        elif method_name == "UPLOAD":
+            if len(input_parts) == 2 and isinstance(input_parts[1],str):
+                parameters = input_parts[1:]
+                UPLOAD(data, parameters[0])
+            else:
+                print(") ERROR: Invalid input format or parameters")
+        else:
+            print(") ERROR: Invalid method name")
+
 
 # INFO: Returns all the keys in the dictionary.  Order is not guaranteed.
 def KEYS(dictionary):
